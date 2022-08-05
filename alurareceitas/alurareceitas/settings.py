@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'alura_receita',
         'USER': 'postgres',
-        'PASSWORD': 'redmist',
+        'PASSWORD': 'Aa.12345',
         'HOST': 'localhost'
     }
 }
