@@ -65,7 +65,7 @@ def dashboard (request):
     else:
         return redirect('login')
 
-def cria_receita(request):
+def cria_receita (request):
     if request.method == 'POST':
         nome_receita  = request.POST['nome_receita']
         ingredientes  = request.POST['ingredientes']
@@ -84,8 +84,14 @@ def cria_receita(request):
     else:
         return render(request, 'usuarios/cria_receita.html')
 
-def campo_vazio(campo):
+def deleta_receita (request, receita_id):
+    receita = get_object_or_404(Receita, pk=receita_id)
+    receita.delete()
+    return redirect('dashboard')
+
+def campo_vazio (campo):
     return not campo.strip()
 
-def senhas_nao_sao_iguais(senha, senha2):
+def senhas_nao_sao_iguais (senha, senha2):
     return senha != senha2
+
