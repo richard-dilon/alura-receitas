@@ -82,7 +82,7 @@ def cria_receita (request):
         receita.save()
         return redirect('dashboard')
     else:
-        return render(request, 'usuarios/cria_receita.html')
+        return render(request, 'receitas/cria_receita.html')
 
 def deleta_receita (request, receita_id):
     receita = get_object_or_404(Receita, pk=receita_id)
@@ -92,12 +92,13 @@ def deleta_receita (request, receita_id):
 def edita_receita(request, receita_id):
     receita = get_object_or_404(Receita, pk=receita_id)
     receita_a_editar = { 'receita': receita }
-    return render(request, 'usuarios/edita_receita.html', receita_a_editar)
+    return render(request, 'receitas/edita_receita.html', receita_a_editar)
 
 def atualiza_receita (request):
     if request.method == 'POST':
         receita_id = request.POST['receita_id']
         r = Receita.objects.get(pk=receita_id)
+        r.nome_receita  = request.POST['nome_receita']
         r.ingredientes  = request.POST['ingredientes']
         r.modo_preparo  = request.POST['modo_preparo']
         r.tempo_preparo = request.POST['tempo_preparo']
