@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from receitas.models import Receita
 
 def busca (request):
+    """Executa função de busca de receitas"""
     lista_receitas = Receita.objects.order_by('-data_receita').filter(publicada=True)
 
     if 'search' in request.GET:

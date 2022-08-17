@@ -5,7 +5,7 @@ from receitas.models import Receita
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index (request):
-
+    """Exibe o index"""
     receitas  = Receita.objects.order_by('-data_receita').filter(publicada=True)
     paginator = Paginator(receitas, 3)
     page      = request.GET.get('page')
@@ -18,6 +18,7 @@ def index (request):
     return render(request, 'receitas/index.html', dados)
 
 def receita (request, receita_id):
+    """Exibe página de receita"""
     receita = get_object_or_404(Receita, pk=receita_id)
 
     receita_a_exibir = {
