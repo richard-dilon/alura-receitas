@@ -2,7 +2,7 @@
 
 <h1>Sistema de cadastro de receitas</h1>
 
-> Project status: In  development
+> Project status: Complete
 
 >> Requirements:
 
