@@ -4,7 +4,9 @@
 
 > Project status: Complete
 
->> Requirements:
+>> Caso ocorra erro de table not found após importar e executar o projeto, rodar o comando "python manage.py migrate --run-syncdb" no terminal.
+
+>>> Requirements:
 
 ```
 asgiref==3.5.2
